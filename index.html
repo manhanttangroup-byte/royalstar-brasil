@@ -70,6 +70,7 @@ section{padding:48px 0}
 .hero .sub{font-size:1.1rem;color:#dfe3ea;max-width:38em}
 .photo{aspect-ratio:1/1;max-width:320px;width:100%;border-radius:12px;background:linear-gradient(135deg,var(--navy-2),#1d3566);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--silver);text-align:center;font-size:.9rem;padding:16px}
 .photo b{font-size:3rem;color:var(--gold);line-height:1}
+.rui{display:block;width:100%;max-width:280px;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:2px solid var(--gold)}
 .photo-cap{color:var(--silver);font-size:.9rem;margin-top:8px}
 
 /* buttons */
@@ -164,10 +165,7 @@ footer .legal{font-size:.82rem;color:#aeb6c4;margin-top:16px}
         <p class="under-btn">Resposta em português. Sem compromisso.</p>
       </div>
       <figure style="margin:0">
-        <!-- FOTO DO RUI: troque esta <div> por
-             <img src="rui.webp" width="600" height="600" alt="Rui Cunha, corretor de imóveis em Deerfield Beach, Flórida" style="border-radius:12px;border:2px solid #d4af37">
-             (foto real, quadrada, ≤ 80 KB em WebP) -->
-        <div class="photo" role="img" aria-label="Espaço reservado para a foto de Rui Cunha"><b>RC</b><span>Foto do Rui</span></div>
+        <img class="rui" src="rui.webp" width="250" height="250" alt="Rui Cunha, corretor de imóveis em Deerfield Beach, Flórida">
         <figcaption class="photo-cap">Rui Cunha — corretor de imóveis, Royal Star Corp</figcaption>
       </figure>
     </div>
@@ -234,7 +232,7 @@ footer .legal{font-size:.82rem;color:#aeb6c4;margin-top:16px}
 <section id="sobre" class="about">
   <div class="wrap">
     <h2>Quem é o Rui</h2>
-    <p class="lead">Rui Cunha é corretor de imóveis em Broward County, Flórida, à frente da Royal Star Corp, em Deerfield Beach. Atende brasileiros em português, do primeiro número até o fechamento — com conta honesta, sem papo de vendedor.</p>
+    <p class="lead">Rui Cunha é corretor de imóveis em Broward County, Flórida, à frente da Royal Star Corp, em Deerfield Beach. Atende brasileiros em português, da primeira conta até a entrega das chaves — com conta honesta, sem papo de vendedor.</p>
     <p class="lead">Royal Star Corp · 3751 NW 9th Ave, Unit 4 · Deerfield Beach, FL 33064 · <a href="https://royalstarcorp.com" rel="noopener">royalstarcorp.com</a></p>
     <p class="lead" style="font-size:.9rem">Não somos assessores financeiros, tributários ou de imigração. Para impostos e vistos, indicamos que você consulte um profissional.</p>
   </div>
@@ -247,6 +245,7 @@ footer .legal{font-size:.82rem;color:#aeb6c4;margin-top:16px}
     <details><summary>Preciso de green card ou SSN para comprar?</summary><div><p>Não. Estrangeiro compra imóvel nos EUA. Para financiar e declarar aluguel você usa o ITIN no lugar do SSN.</p></div></details>
     <details><summary>Comprar imóvel me dá visto ou green card?</summary><div><p>Não. Comprar imóvel não gera nenhum status migratório. O EB-5 é um programa separado, que exige investimento a partir de US$ 800 mil em um negócio que cria empregos — e não é o assunto desta página.</p></div></details>
     <details><summary>Posso financiar? Quanto preciso de entrada?</summary><div><p>Com ITIN é possível financiar. A entrada costuma ficar entre 25% e 40%, sujeita à aprovação do banco. Exemplo: no preço mediano pago por brasileiros (cerca de US$ 445 mil, Florida Realtors 2025), 25% de entrada dá aproximadamente US$ 111 mil, mais custos de fechamento.</p></div></details>
+    <details><summary>É só pra quem tem muito dinheiro?</summary><div><p>Não é só pra milionário, mas também não é barato. Com financiamento, a entrada costuma partir de 25% (sujeita à aprovação do banco). No preço mediano pago por brasileiros, cerca de US$ 445 mil, isso dá uns US$ 111 mil de entrada, mais custos de fechamento. Faça a conta do seu caso com o Rui antes de decidir.</p></div></details>
     <details><summary>Por que um imóvel em dólar?</summary><div><p>Porque o real já caiu forte frente ao dólar em 2002, 2008, 2015 e 2020. Ter parte do patrimônio em um ativo em dólar é uma forma de diversificar — mas o câmbio oscila nos dois sentidos e não há garantia de ganho.</p></div></details>
     <details><summary>O que é FIRPTA?</summary><div><p>É uma retenção na <em>venda</em> do imóvel por estrangeiro: o comprador retém parte do valor bruto (em geral até 15%) e repassa à Receita americana. O que exceder o imposto devido pode ser recuperado. Converse com um contador sobre o seu caso.</p></div></details>
   </div>
@@ -302,7 +301,7 @@ footer .legal{font-size:.82rem;color:#aeb6c4;margin-top:16px}
     <p><strong>Royal Star Corp — Deerfield Beach, FL</strong><br>
       WhatsApp: <a class="js-wa" data-loc="footer" href="https://wa.me/19548508640"><span id="wa-display">+1 (954) 850-8640</span></a><br>
       <!-- Florida Rule 61J2-10.025: the licensed brokerage name must sit next to the contact info. Confirm the exact name on DBPR. -->
-      Rui Cunha, corretor de imóveis licenciado na Flórida (EUA) · Royal Star Corp<br>
+      Rui Cunha, corretor de imóveis licenciado na Flórida (EUA)<br>
       3751 NW 9th Ave, Unit 4 · Deerfield Beach, FL 33064, EUA</p>
     <p class="legal">Conteúdo informativo. Não é recomendação de investimento nem promessa de retorno: imóveis podem valorizar ou desvalorizar, e o câmbio pode ir nos dois sentidos. Comprar imóvel nos EUA não dá direito a visto nem green card. Financiamento sujeito à aprovação do banco. Converse com um contador ou advogado sobre impostos (incluindo FIRPTA) no seu caso.</p>
     <p class="legal"><a class="js-keep-utm" href="privacidade.html">Aviso de Privacidade (LGPD)</a> · © <span id="yr">2026</span> Royal Star Corp</p>
@@ -376,7 +375,6 @@ if (typeof document !== 'undefined') (function(){
 
   var href = waUrl(buildMessage(video));
   document.querySelectorAll('.js-wa').forEach(function(a){ a.href = href; });
-  document.getElementById('wa-display').textContent = '+' + WHATSAPP_NUMBER;
   document.getElementById('yr').textContent = new Date().getFullYear();
   if (/[{}]/.test(WHATSAPP_NUMBER)) console.warn('WHATSAPP_NUMBER is still a placeholder');
 
