@@ -273,7 +273,7 @@ footer .legal{font-size:.82rem;color:#aeb6c4;margin-top:16px}
 <section id="contato" class="final">
   <div class="wrap" style="max-width:560px">
     <h2>Veja os números do seu caso</h2>
-    <p class="lead">Responda 4 perguntas rápidas e a mensagem já abre pronta no WhatsApp do Rui. Nada é salvo nesta página.</p>
+    <p class="lead">Responda 5 perguntas rápidas: suas respostas chegam direto ao Rui por e-mail e a mensagem já abre pronta no WhatsApp dele.</p>
     <a class="btn btn-wa btn-full js-wa" data-loc="final" href="https://wa.me/19548508640">
       <svg aria-hidden="true"><use href="#wa-ico"/></svg>Chamar o Rui no WhatsApp
     </a>
@@ -282,6 +282,11 @@ footer .legal{font-size:.82rem;color:#aeb6c4;margin-top:16px}
         <label for="f-nome">Seu nome</label>
         <input id="f-nome" name="nome" type="text" autocomplete="given-name" required maxlength="80">
       </div>
+      <div>
+        <label for="f-tel">Seu WhatsApp (com DDD e código do país)</label>
+        <input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="+55 11 …" required pattern=".*\d.*\d.*\d.*\d.*\d.*\d.*\d.*\d.*" maxlength="30">
+      </div>
+      <div style="position:absolute;left:-5000px" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <div>
         <label for="f-cidade">Cidade onde você mora</label>
         <input id="f-cidade" name="cidade" type="text" autocomplete="address-level2" required maxlength="80">
@@ -426,6 +431,15 @@ if (typeof document !== 'undefined') (function(){
       return;
     }
     err.textContent = '';
+    if (form.website.value) return;  // bot
+    try {  // backup: save to the leads sheet + email Rui, even if the visitor never presses Send in WhatsApp
+      var b = new URLSearchParams({ nome: form.nome.value.trim(), tel: form.tel.value.trim(), cidade: form.cidade.value.trim(),
+        faixa: form.faixa.value, pagamento: form.pagamento.value, pagina: 'brasil.royalstarcorp.com', codigo: (video && video.code) || 'SITE', lang: 'pt' });
+      var q = new URLSearchParams(location.search);
+      ['utm_source', 'utm_campaign', 'utm_content'].forEach(function (k) { if (q.get(k)) b.set(k, q.get(k)); });
+      if (!(navigator.sendBeacon && navigator.sendBeacon('https://script.google.com/macros/s/AKfycbzIgof3ehZQGZ-uN2R-G_j1KzunlzAWucOWLKAvedQ3aTxXCBhShZLj_Vwnl8mqQiRreg/exec', b)))
+        fetch('https://script.google.com/macros/s/AKfycbzIgof3ehZQGZ-uN2R-G_j1KzunlzAWucOWLKAvedQ3aTxXCBhShZLj_Vwnl8mqQiRreg/exec', { method: 'POST', mode: 'no-cors', body: b, keepalive: true });
+    } catch (x) {}
     var extra = 'Meu nome: ' + form.nome.value.trim() + '. Cidade: ' + form.cidade.value.trim() +
       '. Faixa de investimento: ' + form.faixa.value + '. Penso em ' + form.pagamento.value + '.';
     trackThenGo(waUrl(buildMessage(video, extra)), 'form');
